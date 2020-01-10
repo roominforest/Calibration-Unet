@@ -1,0 +1,26 @@
+
+data:
+  data_id: '/ssd/rxw/neuron_dataset/val_true.txt'
+  roi_data: '/ssd/rxw/roi.npy'
+  data_dir: '/ssd/rxw/neuron_dataset/'
+  img_subfix: ".tif"
+  lab_subfix: "_mask.tif"
+  RoI_file: '/ssd/rxw/neuron_dataset/data_roi.npy'
+  ROI_margin: [4,4,4]
+  ignore_index: 255
+
+parameters:
+  margin: [2, 4, 4]
+  crop_size: [64, 128, 128]
+  seg_stride: 1
+  pad_mode: 'reflect'
+  pad_value: -1000
+
+net:
+    em: ["NeuronDICE","NeuronRecall","NeuronPrecision"]
+    model_file: './data/Model.pt'
+    strict: True
+#ROI: True
+#ske: False
+#data_name: 'bigneuron'
+#jit: True
